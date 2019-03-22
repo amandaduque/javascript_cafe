@@ -3,6 +3,7 @@ const bevList = document.querySelector("#bevList");
 const size = document.querySelector("#size");
 const form = document.querySelector("form");
 const main = document.querySelector(".menu");
+const itemDescription = document.querySelector(".itemDescription");
 const menuPrice = document.querySelector(".menuPrice");
 const priceBox = document.querySelector(".priceBox");
 const add = document.querySelector(".add");
@@ -54,6 +55,33 @@ class Beverages {
                 bevItem = `${bevList.value} $${bevOption[`${size.value}Price`]}`;
                 menuPrice.innerHTML = bevItem;
             }
+            if (bevOption.name === "Batch Brew") {
+                itemDescription.innerText = `Batch Brew: Our full-bodied bean of the day.`;
+            }
+            if (bevOption.name === "Espresso") {
+                itemDescription.innerText = `Espresso: Our signature Espresso Roast.`;
+            }
+            if (bevOption.name === "Americano") {
+                itemDescription.innerText = `Americano: Espresso shots topped with hot water... simply delicious.`;
+            }
+            if (bevOption.name === "Cappuccino") {
+                itemDescription.innerText = `Cappuccino: Delightful espresso beneath a layer of foam.`;
+            }
+            if (bevOption.name === "Latte") {
+                itemDescription.innerText = `Latte: Espresso with steamed milk and light foam. For when you're feeling basic.`;
+            }
+            if (bevOption.name === "Mocha") {
+                itemDescription.innerText = `Mocha: Espresso with bittersweet mocha sauce and steamed milk (plus your daily dose of whipped cream).`;
+            }
+            if (bevOption.name === "Iced Coffee") {
+                itemDescription.innerText = `Iced Coffee: Freshly brewed and served over ice.`;
+            }
+            if (bevOption.name === "Nitro Cold Brew") {
+                itemDescription.innerText = `Nitro Cold Brew: Infused with nitrogen for extra oomph.`;
+            }
+            if (bevOption.name === "Iced Tea") {
+                itemDescription.innerText = `Iced Tea: Lightly sweetened hibiscus tea. Sweet and sassy.`;
+            }
         }
     }
 
@@ -73,14 +101,14 @@ class Beverages {
 class Item {
     constructor(name, sPrice, mPrice, lPrice) {
         this.name = name;
-        this.sPrice = sPrice;
-        this.mPrice = mPrice;
-        this.lPrice = lPrice;
+        this.sPrice = sPrice.toFixed(2);
+        this.mPrice = mPrice.toFixed(2);
+        this.lPrice = lPrice.toFixed(2);
     }
 }
 
-let hotPrices = new Beverages([new Item('coffee', 1.50, 2.00, 2.50), new Item('cappucino', 3.50, 4.00, 4.50), new Item('mocha', 3.50, 4.00, 4.50), new Item('espresso', 2, 2.50, 3.50)]);
-let coldPrices = new Beverages([new Item('iced coffee', 1.50, 2.00, 2.50), new Item('cold brew', 3.50, 4.00, 4.50), new Item('iced tea', 1.50, 2.00, 2.50), new Item('iced latte', 3.50, 4.00, 4.50)]);
+let hotPrices = new Shop([new Item('Batch Brew', 2.00, 2.50, 3.00), new Item('Espresso', 2.50, 3.00, 3.50), new Item('Americano', 3.50, 4.00, 4.50), new Item('Cappuccino', 3.50, 4.00, 4.50), new Item('Latte', 3.50, 4.00, 4.50), new Item('Mocha', 3.50, 4.00, 4.50)]);
+let coldPrices = new Shop([new Item('Iced Coffee', 2.50, 3.00, 3.50), new Item('Nitro Cold brew', 3.50, 4.00, 4.50), new Item('Iced Tea', 2.50, 3.00, 2.50)]);
 
 
 temp.addEventListener("change", () => {
@@ -120,8 +148,6 @@ add.addEventListener('click', () => {
     hotOption.removeAttribute("disabled", "");
     size.value = '';
     temp.value = '';
-
-
 });
 
 
