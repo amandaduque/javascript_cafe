@@ -107,8 +107,8 @@ class Item {
     }
 }
 
-let hotPrices = new Shop([new Item('Batch Brew', 2.00, 2.50, 3.00), new Item('Espresso', 2.50, 3.00, 3.50), new Item('Americano', 3.50, 4.00, 4.50), new Item('Cappuccino', 3.50, 4.00, 4.50), new Item('Latte', 3.50, 4.00, 4.50), new Item('Mocha', 3.50, 4.00, 4.50)]);
-let coldPrices = new Shop([new Item('Iced Coffee', 2.50, 3.00, 3.50), new Item('Nitro Cold brew', 3.50, 4.00, 4.50), new Item('Iced Tea', 2.50, 3.00, 2.50)]);
+let hotPrices = new Beverages([new Item('Batch Brew', 2.00, 2.50, 3.00), new Item('Espresso', 2.50, 3.00, 3.50), new Item('Americano', 3.50, 4.00, 4.50), new Item('Cappuccino', 3.50, 4.00, 4.50), new Item('Latte', 3.50, 4.00, 4.50), new Item('Mocha', 3.50, 4.00, 4.50)]);
+let coldPrices = new Beverages([new Item('Iced Coffee', 2.50, 3.00, 3.50), new Item('Nitro Cold brew', 3.50, 4.00, 4.50), new Item('Iced Tea', 2.50, 3.00, 2.50)]);
 
 
 temp.addEventListener("change", () => {
@@ -150,7 +150,18 @@ add.addEventListener('click', () => {
     temp.value = '';
 });
 
+function submitOrder() {
+    document.getElementById("ccbox").style.display = "block";
+};
 
+function submitCC() {
+    document.getElementById("receiptbox").style.display = "block";
+
+};
+
+function closeReceipt() {
+    location.reload();
+};
 
 
 
