@@ -54,7 +54,7 @@ class Beverages {
             if (bevList.value === bevOption.name) {
                 bevItem = `${bevList.value} $${bevOption[`${size.value}Price`]}`;
                 menuPrice.innerHTML = bevItem;
-            }
+            
             if (bevOption.name === "Batch Brew") {
                 itemDescription.innerText = `Batch Brew: Our full-bodied bean of the day.`;
             }
@@ -83,6 +83,7 @@ class Beverages {
                 itemDescription.innerText = `Iced Tea: Lightly sweetened hibiscus tea. Sweet and sassy.`;
             }
         }
+        }    
     }
 
     displayCart() {
