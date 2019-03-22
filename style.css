@@ -1,0 +1,181 @@
+body {
+    background-color: #D3DED0;
+    margin: 0;
+}
+
+nav {
+    background-color: #686458;
+    color: whitesmoke;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    display: flex;
+    width: 100%;
+  }
+  
+  ul {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+  }
+  
+  li {
+    margin: 10px 15px;
+    font-size: 1.5rem;
+  
+  }
+  
+  .fa-shopping-cart, .fa-bars {
+    color: whitesmoke;
+  }
+  
+  .main {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    /* margin-bottom: 10px; */
+    width: 100%;
+  }
+  
+  .cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #D3DED0;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .checkOut, .add {
+    border: none;
+    background-color: #686458;
+    color: whitesmoke;
+    border-radius: 5px;
+    
+    
+  }
+  
+  .checkOut {
+    width: 80%;
+    padding: 10px 10px;
+    margin-top: 20px;
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+  }
+  
+  
+  .cart div p {
+    border-bottom: 1px solid rgb(77, 77, 77);
+    display: flex;
+    
+  }
+  
+  .prices div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    padding-left: 15px;
+    padding-right: 15px;
+    
+  }
+  
+  .prices {
+    width: 95%;
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .cartItems {
+    display: flex;
+    height: 50px;
+    border: 1px solid black;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    font-family: 'Raleway', sans-serif;
+    width: 100%; 
+    background-color: whitesmoke;
+    font-size: 2rem;
+    padding-top: 20px;
+}
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 15px;
+    
+  }
+  
+  
+  
+  select {
+    font-family: 'Open Sans', sans-serif;      
+    font-size: 1.25rem;
+      margin: 10px;
+      border: none;
+      border-radius: 3px;
+
+      
+  }
+  
+  .add {
+    display: flex;
+    justify-content: center;
+    width: 15%;
+    padding: 5px 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-right: 10px;
+    font-family: 'Raleway', sans-serif;
+
+  }
+  
+  .menuPrice {
+    display: flex;
+    margin-right: 20px;
+    height: 26px;
+    /* border: 1px solid black; */
+  }
+  
+  .priceBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid #FEEAAF; */
+    height: 35px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .cartItems {
+    display: flex; 
+    flex-direction: column;
+
+  }
+
+  .itemLine {
+    display: flex;
+    flex-direction: column;
+
+  }
