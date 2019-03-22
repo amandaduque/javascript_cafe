@@ -70,8 +70,60 @@
                 <p class="totalPrice">$0.00</p>
             </div>
         </div>
-        <button class="checkOut">CHECK OUT</button>
+        <button onclick="submitOrder()" class="checkOut">CHECK OUT</button>
     </div>
+    <div>
+        <div id="ccbox">
+                <div class="payment">
+                <h2>Please Enter Your Payment Info Below:</h2>
+                Name: <input placeholder="Enter name on card."><br>
+                Credit Card: <input placeholder="16 digits - no spaces."><br>
+                CVC: <input placeholder="3 digits"><br>
+                Exp Date: <select>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                </select>
+                <select>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                    <option>2027</option>
+                    <option>2028</option>
+                </select><br>
+                <button onclick="submitCC()">submit</button>
+            </div>
+            </div>
+            <div id="receiptbox">
+                    <div class="receipt">
+                    <h2>Thank You for Your Order!</h2>
+                    <p class="receiptText"></p>
+                    <!-- <p>small coffee $1.00</p>
+                    <p>large espresso $2.00</p>
+                    <p>medium tea $3.00</p>
+                    <p>subtotal $6.00</p>
+                    <p>tax $0.36</p>
+                    <p>total $6.36</p> -->
+                    <button onclick="closeReceipt()">close</button>
+                </div>
+                </div>
+    
+
+</div>
     <script src="script.js"></script>
 </body>
 
