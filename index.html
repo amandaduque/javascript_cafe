@@ -8,124 +8,175 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway:100,200,300,400" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li><i class="fas fa-bars"></i>
-            <li>JavaScript Cafe</li>
-            <!-- <li>Menu</li>
-            <li>About Us</li>
-            <li>Contact</li> -->
-            <li><i class="fas fa-shopping-cart"></i></li>
-        </ul>
-    </nav>
+    <section id="navbar" class="navbar">
+        <div id="showcase">
+            <header>
+                <nav class='cf'>
+                    <ul class='cf'>
+                        <li class="title">
+                            <a href='#showcase'>javaScript_cafe</a>
+                        </li>
+                        <li class="shop">
+                            <div class="shopping"></div><a href='#cart'>Cart</a>
+                            <div class="fas fa-shopping-cart"></div>
+                        </li>
+                        <li class="aboutus">
+                            <a href='#aboutus'>About Us</a>
+                        </li>
+                        <li class="menu">
+                            <a href='#menu'>Menu</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <div class="main">
+                <img
+                    src="https://images.unsplash.com/photo-1529417305485-480f579e7578?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1709&q=80" />
+            </div>
+
+    </section>
     <div class="main">
         <img
             src="https://images.unsplash.com/photo-1529417305485-480f579e7578?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1709&q=80" />
     </div>
-
-    <div class="menu">
-        <header>MENU</header>
-        <form id="form" type="button">
-            <select id="temp">
-                <option value="">Hot or Cold?</option>
-                <option class="hotOption" value="hot">Hot</option>
-                <option class="coldOption" value="cold">Cold</option>
-            </select>
-            <select id="bevList">
-                <option value="0">Beverages</option>
-            </select>
-            <select id="size">
-                <option value="">Size</option>
-                <option value="s">S</option>
-                <option value="m">M</option>
-                <option value="l">L</option>
-            </select>
-            <div class="priceBox">
-                <p class= "itemDescription"></p>
-                <p class="menuPrice"></p>
-                <button class="add" type="button">ADD</button>
-            </div>
-        </form>
-    </div>
-
-    <div class="cart">
-        <div class="prices">
-            <div class="cartItems"></div>
-
-            <div class="subtotal">
-                <p class="subText">Subtotal</p>
-                <p class="subPrice">$0.00</p>
-            </div>
-            <div class="tax">
-                <p class="taxText">Tax</p>
-                <p class="taxPrice">$0.00</p>
-            </div>
-            <div class="total">
-                <p class="totalText">Total</p>
-                <p class="totalPrice">$0.00</p>
-            </div>
-        </div>
-        <button onclick="submitOrder()" class="checkOut">CHECK OUT</button>
-    </div>
-    <div>
-        <div id="ccbox">
-                <div class="payment">
-                <h2>Please Enter Your Payment Info Below:</h2>
-                Name: <input placeholder="Enter name on card."><br>
-                Credit Card: <input placeholder="16 digits - no spaces."><br>
-                CVC: <input placeholder="3 digits"><br>
-                Exp Date: <select>
-                    <option>January</option>
-                    <option>February</option>
-                    <option>March</option>
-                    <option>April</option>
-                    <option>May</option>
-                    <option>June</option>
-                    <option>July</option>
-                    <option>August</option>
-                    <option>September</option>
-                    <option>October</option>
-                    <option>November</option>
-                    <option>December</option>
+    <section id="menu" class="section">
+        <div class="showcase">
+            <header class="head">MENU</header>
+            <!-- <div class="menu"> -->
+            <form id="form" type="button">
+                <select id="temp">
+                    <option value="">Hot or Cold?</option>
+                    <option class="hotOption" value="hot">Hot</option>
+                    <option class="coldOption" value="cold">Cold</option>
                 </select>
-                <select>
-                    <option>2019</option>
-                    <option>2020</option>
-                    <option>2021</option>
-                    <option>2022</option>
-                    <option>2023</option>
-                    <option>2024</option>
-                    <option>2025</option>
-                    <option>2026</option>
-                    <option>2027</option>
-                    <option>2028</option>
-                </select><br>
-                <button onclick="submitCC()">submit</button>
+                <select id="bevList">
+                    <option value="0">Beverages</option>
+                </select>
+                <select id="size">
+                    <option value="">Size</option>
+                    <option value="s">S</option>
+                    <option value="m">M</option>
+                    <option value="l">L</option>
+                </select>
+                <div class="priceBox">
+
+                    <p class="menuPrice"></p>
+                    <button class="add" type="button">ADD</button>
+                </div>
+                <div class="descDiv">
+                    <p class="itemDescription"></p>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="cart">
+            <div class="prices">
+                <div class="cartItems"></div>
+
+                <div class="subtotal">
+                    <p class="subText">Subtotal</p>
+                    <p class="subPrice">$0.00</p>
+                </div>
+                <div class="tax">
+                    <p class="taxText">Tax</p>
+                    <p class="taxPrice">$0.00</p>
+                </div>
+                <div class="total">
+                    <p class="totalText">Total</p>
+                    <p class="totalPrice">$0.00</p>
+                </div>
             </div>
+            <button onclick="submitOrder()" class="checkOut">CHECK OUT</button>
+        </div>
+        <div>
+    </section>
+     <!-- About Us Section -->
+     <section id="aboutus" class="section bg-light">
+            <div class="container">
+                <div class="aboutus">
+                    <div>
+                        <h2>About Us</h2>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti incidunt itaque ullam ea,
+                            commodi quidem adipisci officia minus consequuntur explicabo laudantium sapiente, quae
+                            voluptates exercitationem, eius neque beatae laborum dolorem.</p>
+                        <p>Located at 570 Woodward Ave, Detroit, MI 48226</p>
+                    </div>
+                </div>
             </div>
-            <div id="receiptbox">
-                    <div class="receipt">
-                    <h2>Thank You for Your Order!</h2>
-                    <p class="receiptText"></p>
-                    <!-- <p>small coffee $1.00</p>
+        </section>
+    
+        <!--Contact Us-->
+        <section id="contactus" class="section bg-light">
+            <div class="container">
+                <div class="contactus">
+                    <div>
+                        <h2>Contact Us</h2>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti incidunt itaque ullam ea,
+                            commodi quidem adipisci officia minus consequuntur explicabo laudantium sapiente, quae
+                            voluptates exercitationem, eius neque beatae laborum dolorem.</p>
+                        <p>Please contact us directly at 313-555-1234 or email us at javascriptcafe@coffee.com
+                    </div>
+                </div>
+            </div>
+        </section>
+    <div id="ccbox">
+        <div class="payment">
+            <h2>Please Enter Your Payment Info Below:</h2>
+            Name: <input placeholder="Enter name on card."><br>
+            Credit Card: <input placeholder="16 digits - no spaces."><br>
+            CVC: <input placeholder="3 digits"><br>
+            Exp Date: <select>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+            </select>
+            <select>
+                <option>2019</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+                <option>2025</option>
+                <option>2026</option>
+                <option>2027</option>
+                <option>2028</option>
+            </select><br>
+            <button onclick="submitCC()">submit</button>
+        </div>
+    </div>
+    <div id="receiptbox">
+        <div class="receipt">
+            <h2>Thank You for Your Order!</h2>
+            <p class="receiptText"></p>
+            <!-- <p>small coffee $1.00</p>
                     <p>large espresso $2.00</p>
                     <p>medium tea $3.00</p>
                     <p>subtotal $6.00</p>
                     <p>tax $0.36</p>
                     <p>total $6.36</p> -->
-                    <button onclick="closeReceipt()">close</button>
-                </div>
-                </div>
-    
+            <button onclick="closeReceipt()">close</button>
+        </div>
+    </div>
 
-</div>
+
+    </div>
     <script src="script.js"></script>
 </body>
 
 </html>
-
