@@ -21,7 +21,15 @@ const taxPrice = document.querySelector('.taxPrice');
 const total = document.querySelector('.total');
 const totalText = document.querySelector('.totalText');
 const totalPrice = document.querySelector('.totalPrice');
+const itemName = document.querySelector('.itemName');
+const itemPrice = document.querySelector('.itemPrice');
+const itemLine = document.querySelector('.itemLine');
+const iconDelete = document.querySelector('.fas.fa-times');
+const icon = document.querySelector('.fa-times');
+// const delete = document.querySelector('.delete');
+let itemList = [];
 let bevItem;
+let bevPrice;
 
 
 class Beverages {
@@ -29,12 +37,8 @@ class Beverages {
         this.items = items;
     }
 
-    // findPrice(name) {
-    //     this.items.indexOf(name);
-    // }
-
     displayList() {
-     
+
         const first = bevList.children[0];
         bevList.innerHTML = '';
         bevList.appendChild(first);
@@ -47,54 +51,50 @@ class Beverages {
         }
     }
 
+
+
     priceDisplay() {
         for (let i = 0; i < this.items.length; i++) {
             const bevOption = this.items[i];
 
             if (bevList.value === bevOption.name) {
-                bevItem = `${bevList.value} $${bevOption[`${size.value}Price`]}`;
+                //declared a sep variable for the price
+                bevPrice = `${bevOption[`${size.value}Price`]}`;
+                bevItem = `${bevList.value} $${bevPrice}`;
                 menuPrice.innerHTML = bevItem;
-            
-            if (bevOption.name === "Batch Brew") {
-                itemDescription.innerText = `Batch Brew: Our full-bodied bean of the day.`;
-            }
-            if (bevOption.name === "Espresso") {
-                itemDescription.innerText = `Espresso: Our signature Espresso Roast.`;
-            }
-            if (bevOption.name === "Americano") {
-                itemDescription.innerText = `Americano: Espresso shots topped with hot water... simply delicious.`;
-            }
-            if (bevOption.name === "Cappuccino") {
-                itemDescription.innerText = `Cappuccino: Delightful espresso beneath a layer of foam.`;
-            }
-            if (bevOption.name === "Latte") {
-                itemDescription.innerText = `Latte: Espresso with steamed milk and light foam. For when you're feeling basic.`;
-            }
-            if (bevOption.name === "Mocha") {
-                itemDescription.innerText = `Mocha: Espresso with bittersweet mocha sauce and steamed milk (plus your daily dose of whipped cream).`;
-            }
-            if (bevOption.name === "Iced Coffee") {
-                itemDescription.innerText = `Iced Coffee: Freshly brewed and served over ice.`;
-            }
-            if (bevOption.name === "Nitro Cold Brew") {
-                itemDescription.innerText = `Nitro Cold Brew: Infused with nitrogen for extra oomph.`;
-            }
-            if (bevOption.name === "Iced Tea") {
-                itemDescription.innerText = `Iced Tea: Lightly sweetened hibiscus tea. Sweet and sassy.`;
+
+                if (bevOption.name === "Batch Brew") {
+                    itemDescription.innerText = `Our full-bodied bean of the day.`;
+                }
+                if (bevOption.name === "Espresso") {
+                    itemDescription.innerText = `Our signature Espresso Roast.`;
+                }
+                if (bevOption.name === "Americano") {
+                    itemDescription.innerText = `Espresso shots topped with hot water... simply delicious.`;
+                }
+                if (bevOption.name === "Cappuccino") {
+                    itemDescription.innerText = `Delightful espresso beneath a layer of foam.`;
+                }
+                if (bevOption.name === "Latte") {
+                    itemDescription.innerText = `Espresso with steamed milk and light foam. For when you're feeling basic.`;
+                }
+                if (bevOption.name === "Mocha") {
+                    itemDescription.innerText = `Espresso with bittersweet mocha sauce and steamed milk (plus your daily dose of whipped cream).`;
+                }
+                if (bevOption.name === "Iced Coffee") {
+                    itemDescription.innerText = `Freshly brewed and served over ice.`;
+                }
+                if (bevOption.name === "Nitro Cold Brew") {
+                    itemDescription.innerText = `Infused with nitrogen for extra oomph.`;
+                }
+                if (bevOption.name === "Iced Tea") {
+                    itemDescription.innerText = `Lightly sweetened hibiscus tea. Sweet and sassy.`;
+                }
+
+
             }
         }
-        }    
     }
-
-    displayCart() {
-
-       
-
-    }
-
-
-
-
 }
 
 
@@ -109,7 +109,7 @@ class Item {
 }
 
 let hotPrices = new Beverages([new Item('Batch Brew', 2.00, 2.50, 3.00), new Item('Espresso', 2.50, 3.00, 3.50), new Item('Americano', 3.50, 4.00, 4.50), new Item('Cappuccino', 3.50, 4.00, 4.50), new Item('Latte', 3.50, 4.00, 4.50), new Item('Mocha', 3.50, 4.00, 4.50)]);
-let coldPrices = new Beverages([new Item('Iced Coffee', 2.50, 3.00, 3.50), new Item('Nitro Cold brew', 3.50, 4.00, 4.50), new Item('Iced Tea', 2.50, 3.00, 2.50)]);
+let coldPrices = new Beverages([new Item('Iced Coffee', 2.50, 3.00, 3.50), new Item('Nitro Cold Brew', 3.50, 4.00, 4.50), new Item('Iced Tea', 2.50, 3.00, 2.50)]);
 
 
 temp.addEventListener("change", () => {
@@ -139,17 +139,49 @@ size.addEventListener("change", () => {
 });
 
 
-add.addEventListener('click', () => {
-    let itemLine = document.createElement('div');
-    itemLine.classList.add('itemLine');
-    itemLine.innerHTML = `<p class="itemName">${bevItem}</p><p`;
-    cartItems.appendChild(itemLine);
-    document.getElementById("form").reset();
-    coldOption.removeAttribute("disabled", "");
-    hotOption.removeAttribute("disabled", "");
-    size.value = '';
-    temp.value = '';
+document.body.addEventListener('click', (event) => {
+    if (event.target.className === 'add') {
+
+        let itemLine = document.createElement('div');
+        itemLine.classList.add('itemLine');
+        itemLine.innerHTML = `<button class="delete"><i class="fas fa-times"></i></button><p class="itemName">${bevList.value}</p><p class="itemPrice">$${bevPrice}</p>`;
+        cartItems.appendChild(itemLine);
+        itemList.push(bevPrice);
+        calculate();
+        document.getElementById("form").reset();
+        coldOption.removeAttribute("disabled", "");
+        hotOption.removeAttribute("disabled", "");
+        size.value = '';
+        temp.value = '';
+        itemDescription.innerText = '';
+        menuPrice.innerText = '';
+
+    }
+
+    if (event.target.className === "delete") {
+        const parentDiv = event.target.parentNode;
+        const index = Array.from(parentDiv.parentNode.children).indexOf(parentDiv);
+        parentDiv.remove();
+        deleteIndex(index);
+    }
 });
+
+
+function calculate() {
+    const arrSum = arr => arr.reduce((a, b) => a + Number(b), 0)
+    let sum = arrSum(itemList).toFixed(2);
+    subPrice.innerHTML = `$${sum}`;
+    let taxCalc = (sum * 0.06).toFixed(2);
+    taxPrice.innerHTML = `$${taxCalc}`;
+    let totalCalc = Number(taxCalc) + Number(sum);
+    totalPrice.innerHTML = `$${totalCalc}`;
+
+}
+
+function deleteIndex(index) {
+    itemList.splice(index, 1);
+    calculate();
+}
 
 function submitOrder() {
     document.getElementById("ccbox").style.display = "block";
@@ -163,27 +195,3 @@ function submitCC() {
 function closeReceipt() {
     location.reload();
 };
-
-
-
-
-
-
-
-//  menuPrice.innerHTML =  `${bevList.value} $${bevOption[`${size.value}Price`]}`;
-
- //above is the same as the below if statements
-
-                // if (size.value === 's') {
-                //     menuPrice.innerHTML = `${bevList.value} $${bevOption.sPrice}`;
-
-                // }
-
-                // if (size.value === 'm') {
-                //     menuPrice.innerHTML = `${bevList.value} $${bevOption.mPrice}`;
-                // }
-
-                // if (size.value === 'l') {
-                //     menuPrice.innerHTML = `${bevList.value} $${bevOption.lPrice}`;
-                // }
-                // }
