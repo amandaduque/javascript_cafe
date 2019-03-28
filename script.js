@@ -26,10 +26,22 @@ const itemPrice = document.querySelector('.itemPrice');
 const itemLine = document.querySelector('.itemLine');
 const iconDelete = document.querySelector('.fas.fa-times');
 const icon = document.querySelector('.fa-times');
-// const delete = document.querySelector('.delete');
+const checkOut = document.querySelector('.checkOut');
+const next = document.querySelector('.next');
+const submit = document.querySelector('.submit');
+const submit2 = document.querySelector('.submit2');
+const close = document.querySelector('.close');
+const cashoutTotal = document.querySelector('.cashoutTotal');
+const changeBack = document.querySelector('.changeBack');
+const card = document.querySelector('.card');
+const cash = document.querySelector('.cash');
+const change = document.querySelector('.change');
+const amount = document.querySelector('#amount')
 let itemList = [];
 let bevItem;
 let bevPrice;
+let totalCalc;
+
 
 
 class Beverages {
@@ -173,9 +185,21 @@ function calculate() {
     subPrice.innerHTML = `$${sum}`;
     let taxCalc = (sum * 0.06).toFixed(2);
     taxPrice.innerHTML = `$${taxCalc}`;
-    let totalCalc = Number(taxCalc) + Number(sum);
+    totalCalc = Number(taxCalc) + Number(sum);
     totalPrice.innerHTML = `$${totalCalc}`;
+    document.getElementById("receiptText").innerHTML = `<p>Subtotal: $${sum}</p>
+                            <p>Tax: $${taxCalc}</p>
+                            <p>Total: $${totalCalc}</p>`;
+    document.getElementById("cashoutTotal").innerHTML = `<p>Subtotal: $${sum}</p>
+                            <p>Tax: $${taxCalc}</p>
+                            <p>Total: $${totalCalc}</p>`;                        
 
+}
+
+function calculateChange() {
+    const amountReceived = amount.value;
+    let giveChange = Number(amountReceived) - Number(totalCalc);
+    document.getElementById("changeBack").innerHTML = `<p>Change: $${giveChange}</p>`;
 }
 
 function deleteIndex(index) {
@@ -183,15 +207,43 @@ function deleteIndex(index) {
     calculate();
 }
 
-function submitOrder() {
-    document.getElementById("ccbox").style.display = "block";
-};
 
-function submitCC() {
+
+checkOut.addEventListener("click", () => {
+    document.getElementById("paymentOptions").style.display = "block";
+    });
+    
+document.body.addEventListener("click", (event) => {
+    if (event.target.className === "card") {
+        document.getElementById("ccbox").style.display = "block";
+    } 
+        
+    if (event.target.className === "cash"){
+        document.getElementById("cashbox").style.display = "block";
+    }
+        
+});
+
+submit.addEventListener("click", () => {
+document.getElementById("receiptbox").style.display = "block";
+});
+    
+    submit2.addEventListener("click", () => {
     document.getElementById("receiptbox").style.display = "block";
+    });
+    
+    close.addEventListener("click", () => {
+        location.reload();
+    });
 
-};
+    change.addEventListener("click", () => {
+        calculateChange();
+    });
 
-function closeReceipt() {
-    location.reload();
-};
+function classToggle() {
+    const navs = document.querySelectorAll('.Navbar__Items')
+    
+    navs.forEach(nav => nav.classList.toggle('Navbar__ToggleShow'));
+  }
+  document.querySelector('.Navbar__Link-toggle')
+    .addEventListener('click', classToggle);
