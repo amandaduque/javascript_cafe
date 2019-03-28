@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+
     <title>JavaScript Cafe</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway:100,200,300,400" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -12,42 +13,46 @@
 </head>
 
 <body>
-    <section id="navbar" class="navbar">
-        <div id="showcase">
-            <header>
-                <nav class='cf'>
-                    <ul class='cf'>
-                        <li class="title">
-                            <a href='#showcase'>javaScript_cafe</a>
-                        </li>
-                        <li class="shop">
-                            <div class="shopping"></div><a href='#cart'>Cart</a>
-                            <div class="fas fa-shopping-cart"></div>
-                        </li>
-                        <li class="aboutus">
-                            <a href='#aboutus'>About Us</a>
-                        </li>
-                        <li class="menu">
-                            <a href='#menu'>Menu</a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
 
-            <div class="main">
-                <img
-                    src="https://images.unsplash.com/photo-1529417305485-480f579e7578?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1709&q=80" />
+    <div class="Navbar">
+        <nav class="Navbar__Items">
+            <div class="Navbar__Link Navbar__Link-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="title">JavaScript Cafe</div>
+        </nav>
+
+        <nav class="Navbar__Items Navbar__Items--right">
+            <div class="list">
+                <a href="#menu">Menu</a>
             </div>
 
-    </section>
+            <div class="about">
+                <a href="#aboutUs">About Us</a>
+            </div>
+
+            <div class="contact">
+                <a href="#contactUs">Contact Us</a>
+            </div>
+
+            <div class="shop">
+                <a href="#shop">Cart</a>
+            </div>
+        
+    </div>
+    </nav>
+
+    </div>
+
     <div class="main">
         <img
             src="https://images.unsplash.com/photo-1529417305485-480f579e7578?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1709&q=80" />
     </div>
+
+
     <section id="menu" class="section">
         <div class="showcase">
             <header class="head">MENU</header>
-            <!-- <div class="menu"> -->
             <form id="form" type="button">
                 <select id="temp">
                     <option value="">Hot or Cold?</option>
@@ -75,7 +80,7 @@
             </form>
         </div>
 
-        <div class="cart">
+        <div id="shop" class="cart">
             <div class="prices">
                 <div class="cartItems"></div>
 
@@ -92,39 +97,64 @@
                     <p class="totalPrice">$0.00</p>
                 </div>
             </div>
-            <button onclick="submitOrder()" class="checkOut">CHECK OUT</button>
+            <button class="checkOut">CHECK OUT</button>
         </div>
-        <div>
     </section>
-     <!-- About Us Section -->
-     <section id="aboutus" class="section bg-light">
-            <div class="container">
-                <div class="aboutus">
-                    <div>
-                        <h2>About Us</h2>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti incidunt itaque ullam ea,
-                            commodi quidem adipisci officia minus consequuntur explicabo laudantium sapiente, quae
-                            voluptates exercitationem, eius neque beatae laborum dolorem.</p>
-                        <p>Located at 570 Woodward Ave, Detroit, MI 48226</p>
-                    </div>
+    <!-- About Us Section -->
+    <section id="aboutUs" class="section bg-light">
+        <div class="container">
+            <div class="aboutus">
+                <div>
+                    <h2>ABOUT US</h2>
+                    <h3>When our store first opened, people said we were doing the impossible.</h3>
+                    <h4><em>A coffee shop where you can shop for beans, order a latte, and process your own order?</em>
+                    </h4>
+                    <p>At Javascript Cafe, we prioritize supporting local businesses without sacrificing efficiency. You
+                        can order your morning espresso on the way to work, or stop in and savor it awhile. Whatever you
+                        decide, our site is available for fast and easy self check-out.</p>
+                    <h5><em>Sounds pretty possible to us.</em></h5>
+
                 </div>
             </div>
-        </section>
-    
-        <!--Contact Us-->
-        <section id="contactus" class="section bg-light">
-            <div class="container">
-                <div class="contactus">
-                    <div>
-                        <h2>Contact Us</h2>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti incidunt itaque ullam ea,
-                            commodi quidem adipisci officia minus consequuntur explicabo laudantium sapiente, quae
-                            voluptates exercitationem, eius neque beatae laborum dolorem.</p>
-                        <p>Please contact us directly at 313-555-1234 or email us at javascriptcafe@coffee.com
-                    </div>
+        </div>
+    </section>
+
+    <!--Contact Us-->
+    <section id="contactUs" class="section bg-light">
+        <div class="container">
+            <div class="contactus">
+
+                <h2>CONTACT US</h2>
+                <div class="contactP">
+                    <p>Phone: 313-555-1234</p>
+                    <p>Email: javascriptcafe@coffee.com</p>
+                    <p>570 Woodward Ave, Detroit, MI 48226</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+    <div id="paymentOptions">
+        <div class="paymentOptions">
+            <h2>Select Your Payment Option Below:</h2>
+            <input class="cash" type="radio" value="cash">Cash</input>
+            <input class="card" type="radio" value="card">Card</input><br>
+            <!-- <button class="next">Next</button> -->
+        </div>
+    </div>
+    <div id="cashbox">
+        <div class="cashText">
+            <h2>Please Enter Payment Amount Below:</h2>
+            <div id="cashoutTotal"></div>
+            Amount Received:<input id="amount"><br>
+            <button class="change">Calculate Change</button><br>
+            <div id="changeBack"></div>
+            <button class="submit">Submit</button>
+
+        </div>
+
+    </div>
+
+
     <div id="ccbox">
         <div class="payment">
             <h2>Please Enter Your Payment Info Below:</h2>
@@ -157,24 +187,16 @@
                 <option>2027</option>
                 <option>2028</option>
             </select><br>
-            <button onclick="submitCC()">submit</button>
+            <button class="submit2">Submit</button>
         </div>
     </div>
     <div id="receiptbox">
         <div class="receipt">
             <h2>Thank You for Your Order!</h2>
-            <p class="receiptText"></p>
-            <!-- <p>small coffee $1.00</p>
-                    <p>large espresso $2.00</p>
-                    <p>medium tea $3.00</p>
-                    <p>subtotal $6.00</p>
-                    <p>tax $0.36</p>
-                    <p>total $6.36</p> -->
-            <button onclick="closeReceipt()">close</button>
+            <div id="receiptText"></div>
+            <button class="close">Close</button>
         </div>
     </div>
-
-
     </div>
     <script src="script.js"></script>
 </body>
